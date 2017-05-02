@@ -40,8 +40,6 @@ $('.chatSection').hide();
         var errorMessage = error.message;
         console.log(error);
       })
-
-
   }
 
 
@@ -77,6 +75,10 @@ $('.chatSection').hide();
     })
 });
 
-$(.'submitChatButton').on('click', function() {
+  $('.submitChatButton').on('click', function() {
+    let content = $('.userInput').val();
+    $('ul').append("<li>" + content + "</li>");
+    // chatBox.(ul).append(li)
+    console.log(content);
 
-})
+  })
