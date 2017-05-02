@@ -1,3 +1,5 @@
+$('.chatSection').hide();
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAozrLBmDR09LPHLn6Ru0CMkd9e8yP3Rp0",
@@ -27,14 +29,19 @@
     let email = $('.loginEmail').val();
     let password = $('.loginPassword').val();
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .catch(function(error) {
+        .then(user => user.getToken())
+        .then(JWT => console.log(JWT))
+        .then(function() {
+          $('.chatSection').show();
+        })
+        .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(error);
       })
-      .then(user => user.getToken())
-      .then(JWT => console.log(JWT))
+
+
   }
 
 
@@ -44,13 +51,32 @@
     let email = $('.signUpEmail').val();
     let password = $('.signUpPassword').val();
     firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(function(user) {
+        if (user) {
+          $('.chatSection').show();
+          console.log(user.uid);
+        }
+      })
       .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(error);
     })
-    .then(function(res) {
-      console.log(res.uid);
-    })
   }
+
+  $('.signOutButton').on('click', function() {
+
+      firebase.auth().signOut()
+      .then(function(){
+        $('.chatSection').hide();
+      })
+      // Sign-out successful.
+    .catch(function(error) {
+      // An error happened.
+    })
+});
+
+$(.'submitChatButton').on('click', function() {
+
+})

@@ -4,26 +4,35 @@
     <meta charset="utf-8">
     <title>8.1 Oh User Where Art Thou</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-    <link src="main.css">
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
 
-    <h1>Please login</h1>
-    <input class="loginEmail" type="text" name="" value="" placeholder="Email Address"></input> <br />
-    <input class="loginPassword" type="text" name="" value="" placeholder="Password"></inout> <br />
-    <button class="login" type="button" name="button">Login</button>
+    <div class="container">
+      <h4>Please login</h4>
+      <input class="loginEmail" type="text" name="" value="" placeholder="Email Address"></input> <br />
+      <input class="loginPassword" type="text" name="" value="" placeholder="Password"></inout> <br />
+      <button class="login" type="button" name="button">Login</button>
 
-    <h1>No Account? Please Sign Up</h1>
-    <input class="signUpEmail" type="text" name="" value="" placeholder="Email Address"></input> <br />
-    <input class="signUpPassword" type="text" name="" value="" placeholder="Password"> <br />
-    <button class="signUp" type="button" name="button">Sign Up</button>
+      <h4>No Account? Please Sign Up</h4>
+      <input class="signUpEmail" type="text" name="" value="" placeholder="Email Address"></input> <br />
+      <input class="signUpPassword" type="text" name="" value="" placeholder="Password"> <br />
+      <button class="signUp" type="button" name="button">Sign Up</button>
+
+      <div>
+        <br />
+        <button class="signOutButton" type="button" name="signOutButton">Sign Out</button>
+      </div>
 
 
-    <form class="" action="index.html" method="post">
+      <div class="chatSection">
+        <h1>Let's Chat</h1>
+        <div class="chatBox"></div>
+          <input class="userInput" type="text" name="" value="" placeholder="Chat Here">
+          <button class="submitChatButton" type="button" name="button">Submit Chat</button>
+      </div>
 
-      <input type="text" name="" value="" placeholder="Chat Here">
-      <button type="button" name="button"></button>
-    </form>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
