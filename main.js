@@ -1,4 +1,4 @@
-$('.chatSection').hide();
+// $('.chatSection').hide();
 
   // Initialize Firebase
   var config = {
