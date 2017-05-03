@@ -75,10 +75,44 @@ $('.chatSection').hide();
     })
 });
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+  console.log(user);
   $('.submitChatButton').on('click', function() {
-    let content = $('.userInput').val();
+    let content = $('.chatInput').val();
     $('ul').append("<li>" + content + "</li>");
     // chatBox.(ul).append(li)
     console.log(content);
 
+    firebase.database().ref('message/').push({
+        email: user.email,
+        message : content
+      })
+
   })
+}
+});
+
+
+  // Get a reference to the database service
+  // var database = firebase.database();
+
+
+  // function writeNewPost(uid, email, body) {
+  //   // A post entry.
+  //   var postData = {
+  //     uid: uid,
+  //     email: email,
+  //     body: body,
+  //   };
+  //
+  //   // Get a key for a new Post.
+  //   var newPostKey = firebase.database().ref().child('posts').push().key;
+  //
+  //   // Write the new post's data simultaneously in the posts list and the user's post list.
+  //   var updates = {};
+  //   updates['/posts/' + newPostKey] = postData;
+  //   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+  //
+  //   return firebase.database().ref().update(updates);
